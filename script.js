@@ -34,8 +34,7 @@ function asyncFunctionThree() {
     })
 }
 
-// this is an "anonymous" function,
-// which is basically a function without declaration that call itself
+// call all the previous functions asynchronously
 async function callAllFunctions() {
     syncFunction() // will be executed immediately
     await asyncFunctionOne() // will be executed after 3 seconds
