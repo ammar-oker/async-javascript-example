@@ -52,13 +52,24 @@ async function recursion() {
     }
 }
 
-// turns out await inside a "for" loop really works!
+// await inside a "for" loop will work
 async function awaitInsideForLoop() {
     for (let i = 0; i < 3; i++) {
         await asyncFunctionTwo()
+        console.log('after the await', i)
+    }
+}
+
+// if we use the "then" approach, it won't work
+function awaitWithThen() {
+    for (let i = 0; i < 3; i++) {
+        asyncFunctionTwo().then(() => {
+            console.log('after then', i)
+        })
     }
 }
 
 // callAllFunctions()
 // recursion()
-awaitInsideForLoop()
+// awaitInsideForLoop()
+awaitWithThen()
