@@ -52,5 +52,13 @@ async function recursion() {
     }
 }
 
+// turns out await inside a "for" loop really works!
+async function awaitInsideForLoop() {
+    for (let i = 0; i < 3; i++) {
+        await asyncFunctionTwo()
+    }
+}
+
 // callAllFunctions()
-recursion()
+// recursion()
+awaitInsideForLoop()
