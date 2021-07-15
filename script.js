@@ -4,7 +4,7 @@ function syncFunction() {
     console.log('executing sync function')
 }
 
-// The next three other functions are "async" functions
+// The next three other functions are "asynchronous" functions
 // which means they're gonna return a Promise,
 // a Promise can be awaited until the function is resolved by calling "resolve()"
 function asyncFunctionOne() {
@@ -42,7 +42,13 @@ async function callAllFunctions() {
     await asyncFunctionThree() // will be executed after 9 seconds
 }
 
-// now let's call asyncFunctionTwo three times inside a loop
+
+
+/*
+* The following functions test how async functions would work inside loops
+*/
+
+// await inside a recursion function will work
 let i = 0
 async function recursion() {
     if (i < 3) {
@@ -72,4 +78,4 @@ function awaitWithThen() {
 // callAllFunctions()
 // recursion()
 // awaitInsideForLoop()
-awaitWithThen()
+// awaitWithThen()
