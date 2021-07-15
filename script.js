@@ -4,7 +4,7 @@ function syncFunction() {
     console.log('executing sync function')
 }
 
-// The next three other function are "async" functions
+// The next three other functions are "async" functions
 // which means they're gonna return a Promise,
 // a Promise can be awaited until the function is resolved by calling "resolve()"
 function asyncFunctionOne() {
@@ -36,9 +36,22 @@ function asyncFunctionThree() {
 
 // this is an "anonymous" function,
 // which is basically a function without declaration that call itself
-(async function () {
+async function callAllFunctions() {
     syncFunction() // will be executed immediately
     await asyncFunctionOne() // will be executed after 3 seconds
     await asyncFunctionTwo() // will be executed after 6 seconds
     await asyncFunctionThree() // will be executed after 9 seconds
-})()
+}
+
+// now let's call asyncFunctionTwo three times inside a loop
+let i = 0
+async function recursion() {
+    if (i < 3) {
+        await asyncFunctionTwo()
+        i++
+        recursion()
+    }
+}
+
+// callAllFunctions()
+recursion()
