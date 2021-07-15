@@ -66,7 +66,7 @@ async function awaitInsideForLoop() {
     }
 }
 
-// if we use the "then" approach, it won't work
+// if we use the "then" approach inside "for" loop it won't work
 function awaitWithThen() {
     for (let i = 0; i < 3; i++) {
         asyncFunctionTwo().then(() => {
